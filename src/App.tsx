@@ -1,8 +1,18 @@
-
+import FileInput from "./components/FileInput";
 
 function App() {
-  return <h1>Hello World!</h1>
+  const onSubmit = () => {};
+
+  return(
+    <div >
+      <h1 >
+        Input de Arquivos
+      </h1>
+      <form onSubmit={onSubmit}></form>
+      <FileInput />
+    </div>
+  );
   
 }
 
-export default App
+export default App;
