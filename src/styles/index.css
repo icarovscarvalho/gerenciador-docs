@@ -1,3 +1,251 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --corbg: linear-gradient(130deg, #ffd359,
+            #ffd359);
+    --corBase: #fcba03;
+    --corBaseGroove: #dfa60a;
+    --corBaseSuave: #faf4e3;
+    --corBaseMedia: #ffd359;
+    --corTitle: #000;
+    --corTextInside: #fff;
+    --corSubText: #707070;
+}
+
+body {
+    background: var(--corbg);
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    background-color: var(--corTextInside);
+    border-radius: 7px;
+    width: 85%;
+    margin: auto;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+main>section {
+    width: 600px;
+}
+
+@media (max-width: 800px) {
+    body {
+        height: 97.4vh;
+        width: 100vw;
+    }
+
+    main>section {
+        width: 400px;
+    }
+}
+
+#uploaded-box-docs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+#uploaded-box-docs .upload-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#uploaded-box-docs>.files-group {
+    padding: 10px 20px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px #00000088;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#uploaded-box-docs .align-files {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 20px;
+}
+
+#uploaded-box-docs .align-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+#uploaded-box-docs .fileType {
+    background-color: var(--corBaseGroove);
+    color: var(--corTextInside);
+    border-radius: 5px;
+    width: 50px;
+    padding: 7px;
+    text-align: center;
+}
+
+#uploaded-box-docs .align-right span {
+    background-color: var(--corBaseGroove);
+    color: var(--corBaseSuave);
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+#uploaded-box-docs h3 {
+    width: 450px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@media (max-width: 800px) {
+    #uploaded-box-docs {
+        width: 250px;
+    }
+
+    #uploaded-box-docs h3 {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 100px;
+    }
+}
+
+.upload-box-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.upload-box-group h2 {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.upload-box-group form {
+    background-color: var(--corBaseSuave);
+    border: 2px dashed var(--corBaseMedia);
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 30px;
+    width: 500px;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-box-group form>label {
+    text-align: center;
+    cursor: pointer;
+}
+
+.upload-box-group label>span {
+    color: var(--corBase);
+    font-size: 6rem;
+}
+
+.upload-box-group label>p {
+    font-family: 'Indie Flower', cursive;
+    color: var(--corBase);
+    font-size: 2rem;
+}
+
+#uploaded-box-docs {
+    height: 100%;
+}
+
+#uploaded-box-docs>.upload-title {
+    color: var(--corSubText);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+    .upload-box-group form {
+        width: 250px;
+        height: 150px;
+    }
+
+    .upload-box-group label>span {
+        font-size: 4rem;
+    }
+
+    .upload-box-group label>p {
+        font-size: 1.5rem;
+    }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --corbg: linear-gradient(130deg, #ffd359,
+            #ffd359);
+    --corBase: #fcba03;
+    --corBaseGroove: #dfa60a;
+    --corBaseSuave: #faf4e3;
+    --corBaseMedia: #ffd359;
+    --corTitle: #000;
+    --corTextInside: #fff;
+    --corSubText: #707070;
+}
+
+footer {
+    background-color: var(--corBase);
+    width: 100vw;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.footer-box>p {
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.footer-box img {
+    width: 40px;
+}

@@ -1,37 +1,52 @@
-import { useCallback,useState } from "react";
-import {useDropzone} from 'react-dropzone'
 
-function FileInput() {
-    const [file, setFile] = useState <File | null> (null);
+export default function FileInput(): void {
+    const input = document.getElementById('upload') as HTMLInputElement;
+    const uploadedBoxDocs = document.getElementById('uploaded-box-docs') as HTMLElement;
 
-    const onDrag = useCallback((files: File[]) => {
-        setFile(files[0])
-    }, []);
-
-    if (file) return null;
-
-    const dropzone = useDropzone({
-        onDrag,
-        accept: {
-            'application/pdf': ['.pdf']
+    input.addEventListener('change', (e) => {
+        const target = e.target as HTMLInputElement;
+        if (target.files && target.files.length > 0) {
+            const fileName = target.files[0].name;
+            const fileType = target.value.split('.').pop() || ''; // Definir como string vazia se for undefined
+            fileShow(fileName, fileType);
         }
-    })
+    });
 
-    return(
-        <div {...dropzone.getRootProps()}
-        className="w-1/2 h-96 rounded-lg border-dashed border-2 border-blue-400 hover:border-blue-500 bg-blue-50 hover:bg-blue-100 transition-all">
-            <label htmlFor="dropzone-file" className="cursor-pointer w-full h-full">
-                <div className="w-full h-full p-5 flex flex-col items-center justify-center hover:scale-105 transition-all">
-                    <p className="mb-2 text-lg text-blue-600">
-                        <span className="font-bold">Click Here</span> or drag file!
-                    </p>
-                    <p className="text-blue-400 text-sm">PDF</p>
-                </div>
-            </label>
-            <input {...dropzone.getInputProps()}
-            className="hidden" />
-        </div>
-    );
+    const fileShow = (fileName: string, fileType: string): void => {
+        const filesGroup = document.createElement('div');
+        filesGroup.classList.add('files-group');
+
+        const alignFiles = document.createElement('div');
+        alignFiles.classList.add('align-files');
+        filesGroup.append(alignFiles);
+
+        const left = document.createElement('div');
+        left.classList.add('align-left');
+        alignFiles.append(left);
+
+        const fileTypeSpan = document.createElement('span');
+        fileTypeSpan.classList.add('fileType');
+        left.append(fileTypeSpan);
+
+        fileTypeSpan.textContent = fileType;
+
+        const titleH3 = document.createElement('h3');
+        titleH3.textContent = fileName;
+        left.append(titleH3);
+
+        const right = document.createElement('div');
+        right.classList.add('align-right');
+        alignFiles.append(right);
+
+        const deleteSpan = document.createElement('span');
+        deleteSpan.innerHTML = '&#215;';
+        right.append(deleteSpan);
+        deleteSpan.style.cursor = 'pointer';
+
+        uploadedBoxDocs.append(filesGroup);
+
+        deleteSpan.addEventListener('click', () => {
+            uploadedBoxDocs.removeChild(filesGroup);
+        });
+    };
 }
-
-export default FileInput;

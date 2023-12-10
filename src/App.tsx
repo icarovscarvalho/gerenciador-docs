@@ -1,16 +1,37 @@
+import Footer from "./components/footer";
 import FileInput from "./components/FileInput";
 
 function App() {
-  const onSubmit = () => {};
+
+    FileInput()
 
   return(
-    <div className="bg-gray-100 w-screen h-screen py-10 flex flex-col justify-start items-center gap-y-5">
-      <h1 className="text-4xl text-blue-600 font-bold">
-        Input de Arquivos
-      </h1>
-      <form onSubmit={onSubmit}></form>
-      <FileInput />
-    </div>
+    <>
+        <main className="container relative">
+            <section className="upload-box-group">
+                <div className="input-box">
+                    <h2 className="upload-title-area text-3xl"> Upload Files </h2>
+                    <form action="">
+                        <input type="file" name="upload" id="upload" accept=".doc, .docx, .pdf" hidden />
+                        <label htmlFor="upload" className="upload-label">
+                            <span className="material-symbols-outlined">
+                                cloud_upload
+                            </span>
+                            <p>Click to Upload</p>
+                        </label>
+                    </form>
+                </div>
+            </section>
+            <section id="uploaded-box-docs">
+                <h3 className="upload-title">Upload Documents <span className="material-symbols-outlined">
+                    upload_file
+                </span>
+                </h3>
+        
+            </section>
+        </main>
+        <Footer />
+    </>
   );
   
 }
